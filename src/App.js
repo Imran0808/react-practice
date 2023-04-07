@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import v from'./data.json'
 import './App.css';
-
+import MoviesCart from './MoviesCart';
+import Header from './Header';
+import Footer from './Footer';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <div className='App'>
+    <Header/>
+    <div className='main'>
+      {
+        v.map((element)=>(
+          <MoviesCart title={element.Title}  image={element.Poster} year={element.Year} imbd={element.imdbID}  />
+        ))
+        
+      }
+    
+   
     </div>
+    <Footer/>
+   </div>
   );
 }
 
